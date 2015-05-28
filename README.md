@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-There only one method `img_src`, the first parameter `email` is required, and `size` is optional.
+There only one method `img_src`, the first parameter `email` is required, and `size`(64, 128 or 256 is accepted, others will be ignored. The default is 256) is optional.
 
 ```
 irb(main):001:0> require 'avatar_store'
@@ -32,8 +32,11 @@ irb(main):002:0> e = "liubin0329@gmail.com"
 irb(main):003:0> AvatarStore.img_src e
 => "//farm.avatarstore.org/2c07a4ee1a8447320fceb4a62989ed71"
 
-irb(main):004:0> AvatarStore.img_src e, 32
-=> "//farm.avatarstore.org/2c07a4ee1a8447320fceb4a62989ed71_32"
+irb(main):004:0> AvatarStore.img_src e, 64
+=> "//farm.avatarstore.org/2c07a4ee1a8447320fceb4a62989ed71/64"
+
+irb(main):004:0> AvatarStore.img_src e, 72
+=> "//farm.avatarstore.org/2c07a4ee1a8447320fceb4a62989ed71"
 ```
 
 
