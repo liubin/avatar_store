@@ -17,4 +17,4 @@ RUN cd /tmp \
 
 # skip installing gem documentation
 RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
-
+RUN gem install respec ci_reporter_rspec
