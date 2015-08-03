@@ -1,7 +1,10 @@
-require "bundler/gem_tasks"
-require "rspec/core/rake_task"
+require 'rubygems'
+require 'rspec/core/rake_task'
+require 'ci/reporter/rake/rspec'
 
-RSpec::Core::RakeTask.new(:spec)
-
-task :default => :spec
-task :test => :spec
+desc "Run those specs"
+task :spec => [ "ci:setup:rspec" ]
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = %w{--colour --format progress}
+  t.pattern = 'spec/*_spec.rb'
+end
